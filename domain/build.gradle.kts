@@ -1,5 +1,7 @@
 plugins {
-    java
+    `java-library`
+    id("io.freefair.lombok") version "6.0.0-m2"
+
 }
 
 group = "org.example"
@@ -10,10 +12,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    api(libs.jakartaValidation)
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
-}

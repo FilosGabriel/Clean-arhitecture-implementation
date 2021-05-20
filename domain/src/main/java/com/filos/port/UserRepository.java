@@ -4,13 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import com.filos.entity.User;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public interface UserRepository {
-    Optional<User> findById(String id);
+    Optional<User> findById(@NotBlank final String id);
 
-    List<User> findAl();
+    Optional<User> findByEmail(@NotBlank final String Email);
 
-    void save(User user);
+    List<User> findAll();
 
-    Optional<User> findByUsernameAndPassword(String username, String password);
+    User save(@NotNull User user);
+
+    Optional<User> findByUsernameAndPassword(@NotBlank final String username, @NotBlank String password);
 }
