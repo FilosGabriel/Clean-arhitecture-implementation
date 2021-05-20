@@ -1,0 +1,24 @@
+plugins {
+    java
+}
+
+version = "unspecified"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(projects.domain)
+    implementation(projects.usecase)
+    implementation(projects.adapter.encoder.shaEncoder)
+    implementation(projects.adapter.idGenerator.uuid)
+    implementation(projects.adapter.repository.hazelcast)
+    implementation(projects.adapter.repository.inMemorySimple)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+
+tasks.getByName<Test>("test") {
+    useJUnitPlatform()
+}
