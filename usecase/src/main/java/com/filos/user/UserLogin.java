@@ -23,7 +23,7 @@ public class UserLogin {
     }
 
     private void checkPassword(String password, User user) {
-        if (!user.getEmail().equals(encoder.encodePassword(password))) {
+        if (!user.getPassword().equals(encoder.encodePassword(password))) {
             throw new NotAllowedException();
         }
     }

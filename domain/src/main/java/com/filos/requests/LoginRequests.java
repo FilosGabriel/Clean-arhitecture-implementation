@@ -10,4 +10,9 @@ public class LoginRequests {
     private String email;
     @NotBlank
     private String password;
+
+    public LoginRequests(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
