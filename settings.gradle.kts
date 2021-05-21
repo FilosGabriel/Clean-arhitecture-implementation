@@ -23,3 +23,7 @@ include("config")
 include("application")
 include("application:manual-app")
 findProject(":application:manual-app")?.name = "manual-app"
+include("application:spring-app")
+findProject(":application:spring-app")?.name = "spring-app"
+include("application:vertx")
+findProject(":application:vertx")?.name = "vertx"
