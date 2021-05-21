@@ -1,13 +1,16 @@
 package com.filos.uuid;
 
 import com.filos.entity.User;
+import com.filos.port.IdGenerator;
 import com.filos.port.PasswordEncoder;
 
 public class UserMapper implements com.filos.mapper.UserMapper {
     private final PasswordEncoder encoder;
+    private final IdGenerator idGenerator;
 
-    public UserMapper(PasswordEncoder encoder) {
+    public UserMapper(PasswordEncoder encoder, IdGenerator idGenerator) {
         this.encoder = encoder;
+        this.idGenerator = idGenerator;
     }
 
     @Override
@@ -17,7 +20,7 @@ public class UserMapper implements com.filos.mapper.UserMapper {
                    .firstName(user.getFirstName())
                    .lastName(user.getLastName())
                    .password(encoder.encodePassword(user.getPassword()))
-                   .id(user.getId())
+                   .id(idGenerator.generateId())
                    .build();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Optional;
 import com.filos.entity.User;
 import com.filos.port.UserRepository;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.query.SqlPredicate;
+import com.hazelcast.query.impl.predicates.SqlPredicate;
 
 public class HazelcastRepository implements UserRepository {
     private final HazelcastInstance instance = HazelcastFactory.getInstance();

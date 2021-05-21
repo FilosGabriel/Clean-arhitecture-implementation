@@ -2,15 +2,16 @@ plugins {
     java
 }
 
-version = "unspecified"
+version = "1.0"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation(projects.config)
     implementation(projects.domain)
-    implementation("com.hazelcast:hazelcast:4.2")
+    implementation(projects.usecase)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }

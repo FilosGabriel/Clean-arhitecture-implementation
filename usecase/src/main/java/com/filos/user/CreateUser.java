@@ -16,8 +16,10 @@ public class CreateUser {
     }
 
     public User create(@ValidUser final User user) {
-        repository.findByEmail(user.getEmail())
-                  .orElseThrow(UserAlreadyExistsException::new);
+        if (repository.findByEmail(user.getEmail())
+                      .isPresent()) {
+            throw new UserAlreadyExistsException();
+        }
         User mappedUser = mapper.mapEncoded(user);
         return repository.save(mappedUser);
     }

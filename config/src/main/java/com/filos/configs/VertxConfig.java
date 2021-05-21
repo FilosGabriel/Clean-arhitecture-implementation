@@ -1,4 +1,4 @@
-package com.filos;
+package com.filos.configs;
 
 import com.filos.mapper.UserMapper;
 import com.filos.memory.InMemoryRepository;
@@ -15,7 +15,7 @@ public class VertxConfig {
     private final UserRepository userRepository = new InMemoryRepository();
     private final IdGenerator idGenerator = new UuidGenerator();
     private final PasswordEncoder passwordEncoder = new SHA256Encoder();
-    private final UserMapper mapper = new com.filos.uuid.UserMapper(passwordEncoder);
+    private final UserMapper mapper = new com.filos.uuid.UserMapper(passwordEncoder, idGenerator);
     private final CreateUser createUser = new CreateUser(userRepository, mapper);
     private final FindUser findUser = new FindUser(userRepository);
     private final UserLogin loginUser = new UserLogin(userRepository, passwordEncoder);

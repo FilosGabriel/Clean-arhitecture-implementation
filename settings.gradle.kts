@@ -20,3 +20,6 @@ findProject(":adapter:id-generator:uuid")?.name = "uuid"
 include("adapter:encoder:sha-encoder")
 findProject(":adapter:encoder:sha-encoder")?.name = "sha-encoder"
 include("config")
+include("application")
+include("application:manual-app")
+findProject(":application:manual-app")?.name = "manual-app"

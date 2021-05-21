@@ -5,4 +5,5 @@ module clean.arhitecture.config.main {
     requires clean.arhitecture.usecase.main;
     requires clean.arhitecture.adapter.repository.in.memory.simple.main;
     requires clean.arhitecture.adapter.repository.hazelcast.main;
+    exports com.filos.configs;
 }
